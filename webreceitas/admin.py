@@ -1,4 +1,8 @@
 from django.contrib import admin
 from .models import Receita
 
-admin.site.register(Receita)
+class ExibirReceita(admin.ModelAdmin):
+    list_display= ('id', 'nome_receita', 'categoria',  'tempo_preparo')
+    list_display_links = ('id', 'nome_receita')
+
+admin.site.register(Receita, ExibirReceita)
